@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 function Nav(props) {
-     console.log(props.status)
+     //console.log(props.status)
      return (
           <nav>
                {

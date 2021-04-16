@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { useState } from "react";
 import './App.css';
 import Nav from './components/Nav';
@@ -7,7 +7,7 @@ import Register from './components/Register';
 
 function App() {
   //const user = {username:'amar', password:'1234', isLoggedin: false};
-  const [isLoggedIn, setLoggedIn] = useState(true);
+  const [isLoggedIn, setLoggedIn] = useState(false);
 
   return (
     <Router>
@@ -16,12 +16,11 @@ function App() {
           <h1>Code Review</h1>
         </header>
         
-        <Switch>
-          <Nav status={true} />
-          { !isLoggedIn && <Redirect from='/'exact to='/login' />}
-          <Route path='/login' exact component={Login} />
-          <Route path='/register' exact component={Register} />
-        </Switch>
+        <Nav status={false} />
+        { !isLoggedIn && <Redirect from='/' exact to='/login' />}
+        <Route path='/login' exact component={Login} />
+        <Route path='/register' exact component={Register} />
+        
       </div>
     </Router>
   );
