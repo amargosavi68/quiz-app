@@ -20,7 +20,7 @@ function App() {
 
         { !user.isLoggedin && <Redirect from='/' exact to='/login' />}
 
-        <Route path='/login' exact component={Login} />
+        <Route path='/login' exact user={user} component={Login} />
         <Route path='/register' exact component={Register} />
         
       </div>

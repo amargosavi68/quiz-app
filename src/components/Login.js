@@ -3,41 +3,37 @@ import "../css/Login.css";
 import React from "react";
 
 
-
 class Login extends React.Component {
-     constructor() {
+     constructor({user}) {
           super();
+          console.log(user);
           this.state = ({username: '', password: '', isLoggedin: false});
      }
 
 
-     submitForm = (e) => {
-          this.setState({
-               isLoggedin: true
-          })
-          console.log(this.state);
-          alert("hii");
+     handleSubmit = event => {
+          
      }
 
-     handleChangeInput = (e) => {
-          this.setState({
-               [e.target.name]: e.target.value
-          })
+     handleChangeInput = event => {
+          
      }
+
+
      render() {
           return (
                <div className="container">
                     <SvgImage />
                     { this.state.isLoggedin && <p>You are already logged in..</p> }
                     <div className="login-form">
-                         <h3>Login Here</h3>
+                         <h2>Login Here</h2>
                          <p>{ this.state.isLoggedin }</p>
-                         <form>
+                         <form onSubmit={this.handleSubmit}>
                               <label htmlFor="username">Username</label><br/>
-                              <input type="text" placeholder="Enter username" name="username" onChange={this.handleChangeInput} /><br />
+                              <input type="text" placeholder="Enter username" name="username" onChange={this.handleChangeInput} required={true} /><br />
 
                               <label htmlFor="password">Password</label><br/>
-                              <input type="password" placeholder="Enter password" name="password" onChange={this.handleChangeInput} /> <br />
+                              <input type="password" placeholder="Enter password" name="password" onChange={this.handleChangeInput} required={true} /> <br />
 
                               <button onClick={this.submitForm} > Login </button>
                          </form>
