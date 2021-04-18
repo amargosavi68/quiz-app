@@ -20,21 +20,3 @@ nav {
   background-color: #a50741;
   z-index: -10;
 }
-
-.container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.login-image {
-  margin-top: 50px;
-}
-
-.login-form {
-  background-color: #FEC9DC;
-  padding: 20px 10px;
-  width: 300px;
-  height: auto;
-}

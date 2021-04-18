@@ -6,18 +6,20 @@ import Login from './components/Login';
 import Register from './components/Register';
 
 function App() {
-  //const user = {username:'amar', password:'1234', isLoggedin: false};
-  const [isLoggedIn, setLoggedIn] = useState(false);
+  const initialUserState = {username:'', password:'', isLoggedin: false};
+  const [user, setUser] = useState(initialUserState);
 
   return (
     <Router>
       <div className="App">
         <header>
-          <h1>Code Review</h1>
+          <h1>Quiz App</h1>
         </header>
         
         <Nav status={false} />
-        { !isLoggedIn && <Redirect from='/' exact to='/login' />}
+
+        { !user.isLoggedin && <Redirect from='/' exact to='/login' />}
+
         <Route path='/login' exact component={Login} />
         <Route path='/register' exact component={Register} />
         
